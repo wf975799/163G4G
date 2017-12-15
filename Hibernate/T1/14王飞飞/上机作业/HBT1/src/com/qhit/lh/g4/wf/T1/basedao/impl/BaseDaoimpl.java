@@ -14,7 +14,7 @@ import com.qhit.lh.g4.wf.T1.bean.User;
 import com.qhit.lh.g4.wf.T1.utils.HibernateSessionFactory;
 
 /**
- * @author 张宏远
+ * @author 王飞
  *TODO
  *2017年12月11日下午4:33:50
  */
