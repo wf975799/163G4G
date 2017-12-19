@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 2017-12-15 9:35:55 by Hibernate Tools 5.2.6.Final -->
+<hibernate-mapping>
+
+	<class name="com.qhit.lh.g4.perfact.t3.bean.TEmp" table="t_emp"
+		optimistic-lock="version">
+
+		<id name="eid" type="int">
+
+			<column name="eid" />
+			<generator class="assigned" />
+		</id>
+
+
+
+
+		<property name="empName" type="string">
+			<column name="empName" length="30" not-null="true" />
+		</property>
+
+		<property name="empSex" type="string">
+			<column name="empSex" length="1" not-null="true" />
+		</property>
+
+		<property name="brithday" type="string">
+			<column name="brithday" length="20" not-null="true" />
+		</property>
+
+		<property name="deptId" type="java.lang.Integer">
+			<column name="deptId" />
+		</property>
+		<one-to-one name="userinfo" class="com.qhit.lh.g4.perfact.t3.bean.TUserinfo" cascade="all"/>
+		<one-to-one name="dept" class="com.qhit.lh.g4.perfact.t3.bean.TDept" lazy="false"/>
+
+	</class>
+
+</hibernate-mapping>

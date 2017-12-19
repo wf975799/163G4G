@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 2017-12-15 9:35:55 by Hibernate Tools 5.2.6.Final -->
+<hibernate-mapping>
+
+	<class name="com.qhit.lh.g4.perfact.t3.bean.TDept" table="t_dept"
+		optimistic-lock="version">
+
+		<id name="deptId" type="int">
+
+			<column name="deptId" />
+			<generator class="assigned" />
+		</id>
+
+
+
+
+		<property name="deptName" type="string">
+			<column name="deptName" length="30" not-null="true" />
+		</property>
+
+		<property name="adrress" type="string">
+			<column name="adrress" length="30" not-null="true" />
+		</property>
+	
+	<set name="emps" lazy="false" cascade="save-update">
+		<key column="deptId"></key>
+		<one-to-many class="com.qhit.lh.g4.perfact.t3.bean.TEmp"/>
+	</set>
+	</class>
+
+</hibernate-mapping>
