@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 2017-12-20 16:31:43 by Hibernate Tools 5.0.6.Final -->
+<hibernate-mapping>
+
+	<class name="com.qhit.lh.g4.wf.t06.bean.Emp" table="emp"
+		optimistic-lock="version">
+
+		<id name="eid" type="int">
+
+			<column name="eid" />
+			<generator class="assigned" />
+		</id>
+
+
+
+
+		<property name="ename" type="string">
+			<column name="ename" length="20" not-null="true" />
+		</property>
+
+		<property name="esex" type="string">
+			<column name="esex" length="2" not-null="true" />
+		</property>
+
+		<property name="ebirthday" type="string">
+			<column name="ebirthday" length="20" not-null="true" />
+		</property>
+
+		<property name="did" type="java.lang.Integer">
+			<column name="did" />
+		</property>
+		
+		<one-to-one name="userinfo" class="com.qhit.lh.g4.wf.t6.bean.Userinfo" cascade="all"/>
+		<one-to-one name="dept" class="com.qhit.lh.g4.wf.t6.bean.Dept" lazy="false"/>
+
+	</class>
+
+</hibernate-mapping>

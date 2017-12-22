@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 2017-12-20 16:31:43 by Hibernate Tools 5.0.6.Final -->
+<hibernate-mapping>
+
+	<class name="com.qhit.lh.g4.wf.t06.bean.Userinfo" table="userinfo"
+		optimistic-lock="version" schema="dbo" catalog="db_emp">
+
+		<id name="uid" type="int">
+
+			<column name="uid" />
+			<generator class="assigned" />
+		</id>
+
+
+
+
+		<property name="uname" type="string">
+			<column name="uname" length="20" not-null="true" />
+		</property>
+
+		<property name="upwd" type="string">
+			<column name="upwd" length="20" not-null="true" />
+		</property>
+		<one-to-one name="emp" class="com.qhit.lh.g4.wf.t6.bean.Emp"
+			cascade="all" />
+		<set name="roles" table="role_user" lazy="false">
+			<key column="uid"></key>
+			<many-to-many class="com.qhit.lh.g4.wf.t6.bean.Role" column="roleId"></many-to-many>
+		</set>
+
+	</class>
+
+</hibernate-mapping>
