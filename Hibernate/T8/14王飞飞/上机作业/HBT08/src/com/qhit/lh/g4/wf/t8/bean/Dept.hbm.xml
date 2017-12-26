@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-12-22 9:37:44 by Hibernate Tools 4.0.1.Final -->
+<hibernate-mapping>
+	<class name="com.qhit.lh.g4.wf.t8.bean.Dept" table="dept">
+		<id name="did" type="int">
+			<column name="did" />
+			<generator class="assigned" />
+		</id>
+		<property name="dname" type="string">
+			<column name="dname" length="20" not-null="true" />
+		</property>
+		<property name="daddress" type="string">
+			<column name="daddress" length="20" not-null="true" />
+		</property>
+
+		<set name="emps" lazy="false" cascade="save-update" inverse="true">
+			<key column="deptId"></key>
+			<one-to-many class="com.qhit.lh.g4.wf.t8.bean.Emp" />
+		</set>
+	</class>
+</hibernate-mapping>
